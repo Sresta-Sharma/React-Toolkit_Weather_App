@@ -15,10 +15,10 @@ export default function Search() {
 
   return (
 
-    <div className="flex gap-2">
+    <div className="flex flex-col sm:flex-row gap-2 w-full max-w-md">
 
         <input
-          className="rounded-3xl px-4 py-2 w-64 bg-white/20 backdrop-blur border border-white/30 placeholder-gray-300 text-white focus:outline-none"
+          className="rounded-3xl px-4 py-2 w-full sm:flex-1 bg-white/20 backdrop-blur border border-white/30 placeholder-gray-300 text-white focus:outline-none transition"
           type="text"
           placeholder="Enter city"
           value={city}
@@ -30,7 +30,7 @@ export default function Search() {
 
         <button
           onClick={handleSearch}
-          className="bg-blue-700 text-white px-4 py-2 rounded-3xl hover:bg-blue-600 transition cursor-pointer"
+          className="bg-blue-700 text-white px-4 py-2 rounded-3xl hover:bg-blue-600 active:scale-95 transition w-full sm:w-auto cursor-pointer"
         >
           Search
         </button>

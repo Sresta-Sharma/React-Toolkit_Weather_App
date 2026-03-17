@@ -50,7 +50,7 @@ export default function WeatherCard() {
 
   return (
 
-    <div className="text-center">
+    <div className="text-center w-full max-w-md">
 
       <h2 className="text-3xl font-extrabold mb-4">
         About Today
@@ -60,10 +60,11 @@ export default function WeatherCard() {
         {weather.name}, {weather.sys.country}
       </p>
 
-      <div className="bg-white/10 backdrop-blur-md rounded-3xl p-8 shadow-md border border-white/10 transition transform hover:scale-105 hover:shadow-xl cursor-pointer">
+      {/* Card */}
+      <div className="bg-white/10 backdrop-blur-md rounded-3xl p-6 sm:p-8 shadow-md border border-white/10 transition transform hover:scale-105 active:scale-95 hover:shadow-xl cursor-pointer w-full">
 
       <img
-        className="mx-auto w-40"
+        className="mx-auto w-28 sm:w-40"
         src={`https://openweathermap.org/img/wn/${weather.weather[0].icon}@4x.png`}
       />
 
@@ -75,11 +76,11 @@ export default function WeatherCard() {
         })}
       </p>
 
-      <div className="text-6xl font-bold mb-8">
+      <div className="text-4xl sm:text-6xl font-bold mb-8">
         {Math.round(weather.main.temp)}°
       </div>
 
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         {stats.map((stat) => (
           <div
             key={stat.label}

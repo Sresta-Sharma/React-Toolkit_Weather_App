@@ -30,13 +30,17 @@ function App() {
 
     <div className="min-h-screen bg-gradient-to-b from-indigo-900 via-indigo-700 to-indigo-950 text-white">
 
-      <div className="flex justify-end p-6">
-      <Search />
-      </div>
-      
-      <div className="flex justify-center items-center">
-      <WeatherCard />
-      </div>
+     <div className="flex flex-col items-center gap-6 p-4 sm:p-6">
+
+        <div className="w-full flex justify-center sm:justify-end">
+          <Search />
+        </div>
+
+        <div className="w-full flex justify-center">
+          <WeatherCard />
+        </div>
+
+      </div> 
       
     </div>
 
