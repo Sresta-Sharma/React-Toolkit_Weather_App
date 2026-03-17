@@ -15,19 +15,27 @@ const initialState: WeatherState = {
 
 export const fetchWeather = createAsyncThunk(
   "weather/fetchWeather",
-  async (city: string) => {
+  async (
+    params: { city?: string; lat?: number; lon?: number }
+  ) => {
+
     const API_KEY = import.meta.env.VITE_WEATHER_API_KEY
 
-    const response = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
-    )
+    let url = ""
 
-    if (!response.ok) {
-      throw new Error("City not found")
+    if (params.city) {
+      url = `https://api.openweathermap.org/data/2.5/weather?q=${params.city}&appid=${API_KEY}&units=metric`
+    } else if (params.lat !== undefined && params.lon !== undefined) {
+      url = `https://api.openweathermap.org/data/2.5/weather?lat=${params.lat}&lon=${params.lon}&appid=${API_KEY}&units=metric`
     }
 
-    const data: WeatherResponse = await response.json()
-    return data
+    const response = await fetch(url)
+
+    if (!response.ok) {
+      throw new Error("Failed to fetch weather")
+    }
+
+    return await response.json()
   }
 )
 

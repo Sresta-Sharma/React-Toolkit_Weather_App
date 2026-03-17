@@ -9,7 +9,7 @@ export default function WeatherCard() {
 
   if (loading) {
     return (
-      <div className="mt-6 text-center text-mauve-700">
+      <div className="mt-6 text-center text-mauve-200">
         Loading weather...
       </div>
     )
@@ -17,13 +17,21 @@ export default function WeatherCard() {
 
   if (error) {
     return (
-      <div className="mt-16 text-center text-red-500">
+      <div className="mt-16 text-center text-mauve-200">
         {error}
       </div>
     )
   }
 
-  if (!weather) return null
+  if (!weather) {
+    return (
+      (
+      <div className="mt-6 text-center text-mauve-200">
+        Getting your location...
+      </div>
+    )
+    )
+  }
 
   const stats = [
   {

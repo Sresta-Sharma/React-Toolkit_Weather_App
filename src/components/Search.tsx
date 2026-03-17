@@ -10,7 +10,7 @@ export default function Search() {
 
   const handleSearch = () => {
     if (!city.trim()) return
-    dispatch(fetchWeather(city))
+    dispatch(fetchWeather({ city }))
   }
 
   return (
